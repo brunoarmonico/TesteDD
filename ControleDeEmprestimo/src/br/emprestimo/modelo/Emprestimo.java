@@ -109,4 +109,15 @@ public class Emprestimo {
 		return true;
 	}
 
+	public boolean verificaDiaDaSemana(String data) {
+		DateTimeFormatter fmt = DateTimeFormat.forPattern("dd/MM/yyyy");
+		if (validaData(data)){
+			DateTime umaData = fmt.parseDateTime(data);
+			if(umaData.dayOfWeek().getAsText() == "Domingo"){
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

@@ -62,7 +62,22 @@ public class UC06CadastrarLivro {
 			assertEquals("ISBN invalido", e.getMessage());
 		}
 	}
-	
+	@Test
+	public void CT05cadastrarLivroComISBN_vazio() {
+		
+		String titulo = null;
+		Livro livro = new Livro();
+		
+		try{
+			//acao
+			livro.setTitulo(titulo);
+			fail ("deveria lançar uma exceção");
+		}catch(RuntimeException e){
+			//verificacao
+			assertEquals("Titulo invalido", e.getMessage());
+		}
+		
+	}
 }
 
 
